@@ -1,0 +1,11 @@
+1. cat a1.txt | tr ' ' '\n' | sort | grep you | uniq -c
+2. tail -n 1 a1.txt
+3. head -n 3 a1.txt | tail -n 1
+4. wc -l * | sort -n | head -n 
+5. cat a1.txt | grep -v programming
+6. paste students.txt marks.txt
+7. cat a1.txt | grep "\w$"
+8. ls | grep ^[a-zA-Z0-9]$
+9. cat items.txt | grep "^U.*"
+10. cat items.txt | grep ".*rog.*"
+

@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct process{
+	int bt, at, tt, prio, id,burst;
+};
+bool func(process a, process b){
+	if(a.prio == b.prio){
+		return (a.at <= b.at)?true:false; 	
+	}
+	return (a.prio < b.prio)?true:false;
+}
+int main(){
+	int n;
+	int totalburst = 0;
+	cout<<" Enter number of processes: ";
+	cin>>n;
+	cout<<"Enter burst time, arrival time & priority for each process"<<endl;
+	vector<process> ps(n);
+	for(int i=0;i<ps.size();i++){
+		cin>>ps[i].bt>>ps[i].at>>ps[i].prio;
+		ps[i].id = i+1;
+		ps[i].burst = ps[i].bt;
+		totalburst += ps[i].bt;
+	}
+	//process p = {0,0,0,0};
+	//ps.push_back(p);
+	sort(ps.begin(),ps.end(),func);
+/*	for(int i = 0; i< ps.size();i++)
+		cout<<ps[i].prio<<" ";
+	cout<<endl;
+*/
+	vector<int> ans;
+	int size = 0;
+	for(int i = 0;totalburst!=0;){
+		int j;
+		for(j = 0;j < ps.size();j++){
+			if(ps[j].at<=i&&ps[j].bt!=0)
+				break;
+		}
+		if(j!=ps.size()){
+			for(int k = 0;ps[j].bt!=0;k++){
+				ans.push_back(ps[j].id);
+				i++;
+				ps[j].bt--;
+				totalburst--;
+			}
+			ps[j].tt = i - ps[j].at;
+		}
+		else{
+			ans.push_back(0);
+			i++;
+		}
+	}
+/*
+	for(int i = 0; i< ans.size();i++)
+		cout<<ans[i]<<" ";
+	cout<<endl;
+*/
+	cout<<"0 -> ";
+	for(int i=1;i<ans.size();i++){
+		while(ans[i]==ans[i-1])
+			i++;
+		cout<<"P"<<ans[i-1]<<" -> "<<i<<" -> ";
+	}
+	cout<<"ends"<<endl;
+	int avgwait = 0, avgtt = 0;
+	cout<<" id   waiting time   burst time  turnaround time"<<endl;;
+	for(int i=0;i<ps.size();i++){
+		cout<<ps[i].id<<"        "<<ps[i].tt - ps[i].burst<<"              "<<ps[i].burst<<"               "<<ps[i].tt<<endl;
+		avgtt += ps[i].tt;
+		avgwait += ps[i].tt - ps[i].burst;
+	}
+	cout<<"avg waiting time "<<avgwait/n<<endl;
+	cout<<"avg turnaround time "<<avgtt/n<<endl;
+	return 0;
+}

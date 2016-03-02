@@ -1,0 +1,5 @@
+word frequency list for wonderland.txt  (eg: you - 2, I - 10 ie., the words you 
+hello i dont know whether it will work
+occurs 2 times and I occurs 10 times, note: case insensitive)
+work work work
+question question questions

@@ -1,0 +1,60 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct process{
+	int bt, at, tt, prio, id;
+};
+bool func(process a, process b){
+	if(a.prio == b.prio){
+		return (a.at <= b.at)?true:false; 	
+	}
+	return (a.prio < b.prio)?true:false;
+}
+int main(){
+	int n;
+	int totalburst = 0;
+	cout<<" Enter number of processes: ";
+	cin>>n;
+	cout<<"Enter burst time, arrival time & priority for each process"<<endl;
+	vector<process> ps(n);
+	for(int i=0;i<ps.size();i++){
+		cin>>ps[i].bt>>ps[i].at>>ps[i].prio;
+		ps[i].id = i+1;
+		totalburst += ps[i].bt;
+	}
+	//process p = {0,0,0,0};
+	//ps.push_back(p);
+	sort(ps.begin(),ps.end(),func);
+/*	for(int i = 0; i< ps.size();i++)
+		cout<<ps[i].prio<<" ";
+	cout<<endl;
+*/
+	vector<int> ans;
+	int size = 0;
+	for(int i=0;i<ps.size();i++){
+		for(int j = ps[i].at;ps[i].bt>0;j++){
+			while(size <= j){
+				ans.push_back(0);
+				size++;
+			}
+			if(ans[j]==0){
+				ans[j] = ps[i].id;
+				ps[i].bt -- ;
+			}
+			if(ps[i].bt==0)
+				ps[i].tt = j - ps[i].at + 1;
+		}
+	}
+/*
+	for(int i = 0; i< ans.size();i++)
+		cout<<ans[i]<<" ";
+	cout<<endl;
+*/
+	cout<<"0 -> ";
+	for(int i=1;i<ans.size();i++){
+		while(ans[i]==ans[i-1])
+			i++;
+		cout<<"P"<<ans[i-1]<<" -> "<<i<<" -> ";
+	}
+	cout<<"ends"<<endl;
+	return 0;
+}
