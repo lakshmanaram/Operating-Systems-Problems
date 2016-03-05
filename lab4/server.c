@@ -1,4 +1,4 @@
-//type '/' to exit the server process without force closing
+//type '/' to exit the server process and the client process without force closing
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
@@ -40,10 +40,6 @@ int main()
 		char a[50];
 		scanf("%s",a);
 
-		if(a[0]=='/')
-			break;
-		//quit the loop for detach and deleting shared memory to function.
-
 		strcpy(shm+1,a);
 		//writes the string onto shared memory starting from the second character
 		*shm = '#';
@@ -51,6 +47,11 @@ int main()
 		* puts '#' in the beginning indicating that
 		* the server process has written some text
 		*/
+
+		if(a[0]=='/')
+			break;
+		//quit the loop for detach and deleting shared memory to function.
+
 		while (*shm != '*')
 		sleep(1);
 		/*

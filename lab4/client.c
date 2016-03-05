@@ -1,4 +1,4 @@
-// type '/' to exit the program properly without force closing
+// type '/' in the server code to exit the program properly without force closing
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
@@ -27,7 +27,9 @@ int main()
 
 	while(1){
 		printf("Server Process: ");
-		puts(shm+1);								// prints the message in shared memory
+		puts(shm+1);
+		if(shm[1]=='/')
+			break;								// prints the message in shared memory
 		printf("Client Process : ");
 		char a[50];
 		int i;
@@ -37,9 +39,7 @@ int main()
 		/*
 		* puts '*' in the beginning indicating that
 		* the server process has written some text
-		*/
-		if(a[0]=='/')
-			break;									// exiting the client process
+		*/									// exiting the client process
 		while (*shm != '#')
 			sleep(1);
 

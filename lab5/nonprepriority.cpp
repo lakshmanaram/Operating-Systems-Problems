@@ -54,20 +54,22 @@ int main(){
 	cout<<endl;
 */
 
-	//formatted grantt chart
+	//formatted Grantt chart
 	cout<<"0 -> ";
 	for(int i=1;i<ans.size();i++){
 		while(ans[i]==ans[i-1])
 			i++;
-		cout<<"P"<<ans[i-1]<<" -> "<<i<<" -> ";
+		if(ans[i-1]!=0)
+			cout<<"P"<<ans[i-1]<<" -> "<<i<<" -> ";
+		else
+			cout<<" -> "<<i<<" -> ";
 	}
 	cout<<"ends"<<endl;
 
-	// waiting time, burst time and turnaround time table
 	int avgwait = 0, avgtt = 0;
 	cout<<" id   waiting time   burst time  turnaround time"<<endl;;
 	for(int i=0;i<ps.size();i++){
-		cout<<ps[i].id<<"        "<<ps[i].tt - ps[i].burst<<"              "<<ps[i].burst<<"               "<<ps[i].tt<<endl;
+		cout<<setw(2)<<ps[i].id<<"       "<<setw(3)<<ps[i].tt - ps[i].burst<<"           "<<setw(3)<<ps[i].burst<<"           "<<setw(3)<<ps[i].tt<<endl;
 		avgtt += ps[i].tt;
 		avgwait += ps[i].tt - ps[i].burst;
 	}
