@@ -1,8 +1,10 @@
+// type '/' to exit the program properly without force closing
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define MAXSIZE     50
 void die(char *s)
 {
@@ -14,9 +16,9 @@ int main()
 {
 	int shmid;
 	key_t key;
-	char *shm, *s;
+	char *shm;
 
-	key = 5682;								// same id as in server process
+	key = 5682;									// same id as in server process
 
 	if ((shmid = shmget(key, MAXSIZE, 0666)) < 0)
 		die("shmget");
@@ -24,20 +26,13 @@ int main()
 		die("shmat");
 
 	while(1){
-		s = shm;
 		printf("Server Process: ");
-		puts(s+1);								// prints the message in shared memory
-		putchar('\n');
+		puts(shm+1);								// prints the message in shared memory
 		printf("Client Process : ");
 		char a[50];
 		int i;
 		scanf("%s",a);
-		s = shm;
-		s++;
-		for(i=0;a[i]!='\0';i++){
-			*(s++) = a[i];
-		}
-		*s++ = '\0';
+		strcpy(shm+1,a);
 		*shm = '*';
 		/*
 		* puts '*' in the beginning indicating that

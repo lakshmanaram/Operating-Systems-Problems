@@ -25,7 +25,7 @@ int main(){
 	sort(ps.begin(),ps.end(),func);		// sorting the processes by priority
 	vector<int> ans;
 	int size = 0;
-	for(int i = 0;i<totalburst;){
+	for(int i = 0;totalburst!=0;){
 		// finding the process for every unit of time until the overall burst time gets over
 		int j;
 		for(j = 0;j < ps.size();j++){
@@ -38,6 +38,7 @@ int main(){
 				ans.push_back(ps[j].id);
 				i++;
 				ps[j].bt--;
+				totalburst--;
 			}
 			ps[j].tt = i - ps[j].at;	// total time taken since the arrival - turnaround time
 		}

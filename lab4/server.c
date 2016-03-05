@@ -1,3 +1,4 @@
+//type '/' to exit the server process without force closing
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
@@ -15,7 +16,7 @@ int main()
 {
 	int shmid,i;
 	key_t key;
-	char *shm, *s;
+	char *shm;
 
 	key = 5682;			//random shm key that should be equal to the one used in client code
 	if ((shmid = shmget(key, MAXSIZE, IPC_CREAT | 0666)) < 0)	// creating shared memory
@@ -35,18 +36,16 @@ int main()
 
 	//shm points to the first memory address of shared memory
 	while(1){
-		s = shm;
 		printf("Server Process: ");
 		char a[50];
 		scanf("%s",a);
 
 		if(a[0]=='/')
-			break;			//quit the loop for detach and deleting shared memory to function.
+			break;
+		//quit the loop for detach and deleting shared memory to function.
 
-		s++;		// starting from the second charaacter
-		for (i = 0; a[i]!='\0'; i++)
-			*s++ = a[i];						//writes the string onto shared memory
-		*s = '\0';
+		strcpy(shm+1,a);
+		//writes the string onto shared memory starting from the second character
 		*shm = '#';
 		/*
 		* puts '#' in the beginning indicating that
@@ -62,7 +61,7 @@ int main()
 		*/
 		printf("Client Process: ");
 		puts(shm+1);							// prints th eline written by the client process
-		putchar('\n');
+//		putchar('\n');
 	}
 	shmdt(shm);
 	shmctl(shmid,IPC_RMID,NULL);
