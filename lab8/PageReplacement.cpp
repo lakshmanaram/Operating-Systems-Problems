@@ -2,63 +2,7 @@
 
 using namespace std;
 
-bool checkFault(const vector<int> ref,const int num)
-{
-	for (int i=0; i< ref.size(); i++)
-		if (ref[i] == num)
-			return false;
 
-	return true;
-}
-
-int pageRepFIFO(vector<int> &fr, const vector<int> ref)
-{
-	int faults = 0;
-	int n = fr.size(), l = ref.size();
-	queue <int> q;
-
-	// For printing the frames
-	cout << "Frames: \n";
-
-	// Applying FIFO
-	for (int i=0; i<l; i++)
-	{
-		if (fr[i%n] == INT_MAX)
-		{
-			fr[i%n] = ref[i];
-			q.push( ref[i] );
-			++faults;
-		}
-		else
-		{
-			if ( checkFault( fr, ref[i]) )
-			{
-				int index;
-				for (int j=0; j<n; j++)
-					if (fr[j] == q.front())
-						index = j;
-				fr[ index ] = ref[i];
-				q.push( ref[i] );
-				q.pop();
-				++faults;
-			}
-		}
-
-		// Print the frames at each stage
-		for (int j=0; j<n; j++)
-		{
-			if (fr[j] != INT_MAX)
-				cout << fr[j] << " ";
-			else
-				cout << "-" << " ";
-		}
-		cout <<"\n";
-	}
-
-	cout << "\nThe number of faults is : " << faults;
-
-	return 0;
-}
 
 int findPageOPT(const vector<int> ref, const vector<int> fr, int index)
 {
