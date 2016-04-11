@@ -1,4 +1,5 @@
-// detecting cycles in a graph using dfs at each node
+// detecting cycles in a graph using dfs at each node - single instances of a resource
+// therefore resources can be neglected and cycles are only found between processes
 #include<bits/stdc++.h>
 using namespace std;
 vector<bool> vis;
@@ -7,23 +8,28 @@ struct gnode{                                                                   
     vector<int> children;                                                       //children index values
 };
 class graph{
-    public:
+public:
+    int current_dfs_node;
+    // stores the node that initiates the dfs
     vector<gnode> gnodes;
     graph(int k){                                                               //constructor which takes number of nodes as input
         gnodes.resize(k);
     }
     void dfs_recurse(int n){
         vector<int>::iterator it;
-        for(int i=0;i!=gnodes[n].children.size();i++){
+        for(int i=0;i < gnodes[n].children.size();i++){
             if(vis[gnodes[n].children[i]]==false){
                 vis[gnodes[n].children[i]] = true;
                 dfs_recurse(gnodes[n].children[i]);
             }else{
-                deadlock_found = true;
+                if(gnodes[n].children[i] == current_dfs_node)
+                // the node that initiated the dfs is met again
+                    deadlock_found = true;
             }
         }
     }
     void dfs(int n){
+        current_dfs_node = n;
         vis.resize(gnodes.size());
         fill(vis.begin(),vis.end(),false);
         vis[n] = true;
@@ -47,6 +53,7 @@ int main(){
         g.add_node(a,b);
     }
     for(int i=0;i<n && !deadlock_found;i++){
+    // dfs is initiated from each node
         g.dfs(i);
     }
     if(deadlock_found)

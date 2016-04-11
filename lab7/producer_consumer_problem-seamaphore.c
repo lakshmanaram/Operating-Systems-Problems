@@ -19,6 +19,9 @@ void* producer(void* arg1){
             buf_end = 1;
             buf[buf_begin] = next_produced;
             printf("%d is added to the buffer\n",next_produced);
+        } else{
+            buf[buf_end++] = next_produced;
+            printf("%d is added to the buffer\n",next_produced);
         }
         sem_post(mutex);
         sem_post(full);
