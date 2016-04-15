@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-
+// Compile with flag: g++ PageReplacement.cpp -std=c++1y
 
 int findPageOPT(const vector<int> ref, const vector<int> fr, int index)
 {
@@ -27,6 +26,12 @@ int findPageOPT(const vector<int> ref, const vector<int> fr, int index)
 	return maxInd;
 }
 
+bool search(vector <int>& fr, int target)
+{
+	for (auto& data: fr)
+		if (data == target) return true;
+	return false;
+}
 
 int pageRepOPT(vector<int> &fr, const vector<int> ref)
 {
@@ -35,7 +40,9 @@ int pageRepOPT(vector<int> &fr, const vector<int> ref)
 	cout << "Frames : \n";
 	for (int i=0; i<l; i++)
 	{
-		if (fr[i%n] == INT_MAX)
+		if (search(fr, ref[i]) == true)  cout << "Page Hit!\n";
+
+		else if (fr[i%n] == INT_MAX)
 			fr[i%n] = ref[i], ++faults;
 		else
 		{
@@ -137,11 +144,8 @@ int main()
 		ref.push_back(t);
 	}
 
-	// cout << "\n\nApplying FIFO : ";
-	// pageRepFIFO(fr, ref);
-
-	// cout << "\nApplying OPT : \n";
-	// pageRepOPT(fr, ref);
+	cout << "\nApplying OPT : \n";
+	pageRepOPT(fr, ref);
 	cout << "\nApplying LRU : \n";
 	pageRepLRU(fr, ref);
 
