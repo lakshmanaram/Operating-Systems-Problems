@@ -2,6 +2,7 @@
 // use "gcc -pthread producer_consumer_problem-seamaphore.c" to compile
 // instead of "gcc producer_consumer_problem-seamaphore.c"
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>                         // for malloc
 #include <semaphore.h>                      // for semaphore
 sem_t *empty, *full, *mutex;
@@ -12,6 +13,7 @@ void* producer(void* arg1){
         int next_produced;
         scanf("%d",&next_produced);
         printf("%d is produced\n",next_produced);
+        printf("Waiting for empty buffer\n");
         sem_wait(empty);
         sem_wait(mutex);
         if(buf_begin == buf_end){
@@ -29,6 +31,8 @@ void* producer(void* arg1){
 }
 void* consumer(void* arg1){
     while(1){
+        // consumes every 5 seconds
+        sleep(5);
         int next_produced;
         sem_wait(full);
         sem_wait(mutex);

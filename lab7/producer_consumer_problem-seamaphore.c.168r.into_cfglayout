@@ -1,0 +1,922 @@
+
+;; Function producer (producer, funcdef_no=2, decl_uid=2722, cgraph_uid=2)
+
+
+
+try_optimize_cfg iteration 1
+
+Removing jump 43.
+Removing jump 68.
+
+
+try_optimize_cfg iteration 2
+
+
+
+try_optimize_cfg iteration 1
+
+;; basic block 2, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 0, next block 3, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 4 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                (const_int -24 [0xffffffffffffffe8])) [0 arg1+0 S8 A64])
+        (reg:DI 5 di [ arg1 ])) producer_consumer_problem-seamaphore.c:9 87 {*movdi_internal_rex64}
+     (nil))
+(note 3 2 67 2 NOTE_INSN_FUNCTION_BEG)
+;;  succ:       3 [100.0%]  (FALLTHRU)
+
+;; basic block 3, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 2, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       6 [100.0%]  (FALLTHRU)
+;;              2 [100.0%]  (FALLTHRU)
+(code_label 67 3 5 3 4 "" [0 uses])
+(note 5 67 6 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 6 5 7 3 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fa5dd87c260 *.LC0>)) producer_consumer_problem-seamaphore.c:11 87 {*movdi_internal_rex64}
+     (nil))
+(insn 7 6 8 3 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:11 91 {*movqi_internal}
+     (nil))
+(call_insn 8 7 9 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7fa5dd71af00 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:11 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (nil))))
+(insn 9 8 10 3 (parallel [
+            (set (reg:DI 75)
+                (plus:DI (reg/f:DI 20 frame)
+                    (const_int -4 [0xfffffffffffffffc])))
+            (clobber (reg:CC 17 flags))
+        ]) producer_consumer_problem-seamaphore.c:13 274 {*adddi_1}
+     (nil))
+(insn 10 9 11 3 (set (reg:DI 4 si)
+        (reg:DI 75)) producer_consumer_problem-seamaphore.c:13 87 {*movdi_internal_rex64}
+     (nil))
+(insn 11 10 12 3 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC1") [flags 0x2]  <var_decl 0x7fa5dd87c2f8 *.LC1>)) producer_consumer_problem-seamaphore.c:13 87 {*movdi_internal_rex64}
+     (nil))
+(insn 12 11 13 3 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:13 91 {*movqi_internal}
+     (nil))
+(call_insn 13 12 14 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("*__isoc99_scanf") [flags 0x41]  <function_decl 0x7fa5dd71cb00 scanf>) [0 __builtin_scanf S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:13 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 4 si))
+                (nil)))))
+(insn 14 13 15 3 (set (reg:SI 59 [ next_produced.0 ])
+        (mem/c:SI (plus:DI (reg/f:DI 20 frame)
+                (const_int -4 [0xfffffffffffffffc])) [0 next_produced+0 S4 A32])) producer_consumer_problem-seamaphore.c:14 89 {*movsi_internal}
+     (nil))
+(insn 15 14 16 3 (set (reg:SI 4 si)
+        (reg:SI 59 [ next_produced.0 ])) producer_consumer_problem-seamaphore.c:14 89 {*movsi_internal}
+     (nil))
+(insn 16 15 17 3 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC2") [flags 0x2]  <var_decl 0x7fa5dd87c390 *.LC2>)) producer_consumer_problem-seamaphore.c:14 87 {*movdi_internal_rex64}
+     (nil))
+(insn 17 16 18 3 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:14 91 {*movqi_internal}
+     (nil))
+(call_insn 18 17 19 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7fa5dd71af00 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:14 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (expr_list:REG_BR_PRED (use (reg:SI 4 si))
+                (nil)))))
+(insn 19 18 20 3 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC3") [flags 0x2]  <var_decl 0x7fa5dd87c428 *.LC3>)) producer_consumer_problem-seamaphore.c:15 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 20 19 21 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7fa5dd71c600 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:15 663 {*call_value}
+     (nil)
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 21 20 22 3 (set (reg/f:DI 60 [ empty.1 ])
+        (mem/f/c:DI (symbol_ref:DI ("empty")  <var_decl 0x7fa5dd841be0 empty>) [0 empty+0 S8 A64])) producer_consumer_problem-seamaphore.c:16 87 {*movdi_internal_rex64}
+     (nil))
+(insn 22 21 23 3 (set (reg:DI 5 di)
+        (reg/f:DI 60 [ empty.1 ])) producer_consumer_problem-seamaphore.c:16 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 23 22 24 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_wait") [flags 0x41]  <function_decl 0x7fa5dd863900 sem_wait>) [0 sem_wait S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:16 663 {*call_value}
+     (nil)
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 24 23 25 3 (set (reg/f:DI 61 [ mutex.2 ])
+        (mem/f/c:DI (symbol_ref:DI ("mutex")  <var_decl 0x7fa5dd841d10 mutex>) [0 mutex+0 S8 A64])) producer_consumer_problem-seamaphore.c:17 87 {*movdi_internal_rex64}
+     (nil))
+(insn 25 24 26 3 (set (reg:DI 5 di)
+        (reg/f:DI 61 [ mutex.2 ])) producer_consumer_problem-seamaphore.c:17 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 26 25 27 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_wait") [flags 0x41]  <function_decl 0x7fa5dd863900 sem_wait>) [0 sem_wait S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:17 663 {*call_value}
+     (nil)
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 27 26 28 3 (set (reg:SI 62 [ buf_begin.3 ])
+        (mem/c:SI (symbol_ref:DI ("buf_begin") [flags 0x2]  <var_decl 0x7fa5dd841e40 buf_begin>) [0 buf_begin+0 S4 A32])) producer_consumer_problem-seamaphore.c:18 89 {*movsi_internal}
+     (nil))
+(insn 28 27 29 3 (set (reg:SI 63 [ buf_end.4 ])
+        (mem/c:SI (symbol_ref:DI ("buf_end") [flags 0x2]  <var_decl 0x7fa5dd841ed8 buf_end>) [0 buf_end+0 S4 A32])) producer_consumer_problem-seamaphore.c:18 89 {*movsi_internal}
+     (nil))
+(insn 29 28 30 3 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 62 [ buf_begin.3 ])
+            (reg:SI 63 [ buf_end.4 ]))) producer_consumer_problem-seamaphore.c:18 7 {*cmpsi_1}
+     (nil))
+(jump_insn 30 29 31 3 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 45)
+            (pc))) producer_consumer_problem-seamaphore.c:18 612 {*jcc_1}
+     (nil)
+ -> 45)
+;;  succ:       4 (FALLTHRU)
+;;              5
+
+;; basic block 4, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 3, next block 5, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       3 (FALLTHRU)
+(note 31 30 32 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 32 31 33 4 (set (mem/c:SI (symbol_ref:DI ("buf_begin") [flags 0x2]  <var_decl 0x7fa5dd841e40 buf_begin>) [0 buf_begin+0 S4 A32])
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:19 89 {*movsi_internal}
+     (nil))
+(insn 33 32 34 4 (set (mem/c:SI (symbol_ref:DI ("buf_end") [flags 0x2]  <var_decl 0x7fa5dd841ed8 buf_end>) [0 buf_end+0 S4 A32])
+        (const_int 1 [0x1])) producer_consumer_problem-seamaphore.c:20 89 {*movsi_internal}
+     (nil))
+(insn 34 33 35 4 (set (reg:SI 64 [ buf_begin.5 ])
+        (mem/c:SI (symbol_ref:DI ("buf_begin") [flags 0x2]  <var_decl 0x7fa5dd841e40 buf_begin>) [0 buf_begin+0 S4 A32])) producer_consumer_problem-seamaphore.c:21 89 {*movsi_internal}
+     (nil))
+(insn 35 34 36 4 (set (reg:SI 65 [ next_produced.6 ])
+        (mem/c:SI (plus:DI (reg/f:DI 20 frame)
+                (const_int -4 [0xfffffffffffffffc])) [0 next_produced+0 S4 A32])) producer_consumer_problem-seamaphore.c:21 89 {*movsi_internal}
+     (nil))
+(insn 36 35 37 4 (set (reg:DI 76)
+        (sign_extend:DI (reg:SI 64 [ buf_begin.5 ]))) producer_consumer_problem-seamaphore.c:21 149 {*extendsidi2_rex64}
+     (nil))
+(insn 37 36 38 4 (set (mem/j:SI (plus:DI (mult:DI (reg:DI 76)
+                    (const_int 4 [0x4]))
+                (symbol_ref:DI ("buf")  <var_decl 0x7fa5dd841da8 buf>)) [0 buf S4 A32])
+        (reg:SI 65 [ next_produced.6 ])) producer_consumer_problem-seamaphore.c:21 89 {*movsi_internal}
+     (nil))
+(insn 38 37 39 4 (set (reg:SI 66 [ next_produced.7 ])
+        (mem/c:SI (plus:DI (reg/f:DI 20 frame)
+                (const_int -4 [0xfffffffffffffffc])) [0 next_produced+0 S4 A32])) producer_consumer_problem-seamaphore.c:22 89 {*movsi_internal}
+     (nil))
+(insn 39 38 40 4 (set (reg:SI 4 si)
+        (reg:SI 66 [ next_produced.7 ])) producer_consumer_problem-seamaphore.c:22 89 {*movsi_internal}
+     (nil))
+(insn 40 39 41 4 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC4") [flags 0x2]  <var_decl 0x7fa5dd87c4c0 *.LC4>)) producer_consumer_problem-seamaphore.c:22 87 {*movdi_internal_rex64}
+     (nil))
+(insn 41 40 42 4 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:22 91 {*movqi_internal}
+     (nil))
+(call_insn 42 41 45 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7fa5dd71af00 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:22 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (expr_list:REG_BR_PRED (use (reg:SI 4 si))
+                (nil)))))
+;;  succ:       6 [100.0%]  (FALLTHRU)
+
+;; basic block 5, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       3
+(code_label 45 42 46 5 2 "" [1 uses])
+(note 46 45 47 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 47 46 48 5 (set (reg:SI 67 [ buf_end.8 ])
+        (mem/c:SI (symbol_ref:DI ("buf_end") [flags 0x2]  <var_decl 0x7fa5dd841ed8 buf_end>) [0 buf_end+0 S4 A32])) producer_consumer_problem-seamaphore.c:24 89 {*movsi_internal}
+     (nil))
+(insn 48 47 49 5 (set (reg:SI 68 [ buf_end.9 ])
+        (reg:SI 67 [ buf_end.8 ])) producer_consumer_problem-seamaphore.c:24 89 {*movsi_internal}
+     (nil))
+(insn 49 48 50 5 (parallel [
+            (set (reg:SI 69 [ buf_end.10 ])
+                (plus:SI (reg:SI 68 [ buf_end.9 ])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) producer_consumer_problem-seamaphore.c:24 273 {*addsi_1}
+     (nil))
+(insn 50 49 51 5 (set (mem/c:SI (symbol_ref:DI ("buf_end") [flags 0x2]  <var_decl 0x7fa5dd841ed8 buf_end>) [0 buf_end+0 S4 A32])
+        (reg:SI 69 [ buf_end.10 ])) producer_consumer_problem-seamaphore.c:24 89 {*movsi_internal}
+     (nil))
+(insn 51 50 52 5 (set (reg:SI 70 [ next_produced.11 ])
+        (mem/c:SI (plus:DI (reg/f:DI 20 frame)
+                (const_int -4 [0xfffffffffffffffc])) [0 next_produced+0 S4 A32])) producer_consumer_problem-seamaphore.c:24 89 {*movsi_internal}
+     (nil))
+(insn 52 51 53 5 (set (reg:DI 77)
+        (sign_extend:DI (reg:SI 68 [ buf_end.9 ]))) producer_consumer_problem-seamaphore.c:24 149 {*extendsidi2_rex64}
+     (nil))
+(insn 53 52 54 5 (set (mem/j:SI (plus:DI (mult:DI (reg:DI 77)
+                    (const_int 4 [0x4]))
+                (symbol_ref:DI ("buf")  <var_decl 0x7fa5dd841da8 buf>)) [0 buf S4 A32])
+        (reg:SI 70 [ next_produced.11 ])) producer_consumer_problem-seamaphore.c:24 89 {*movsi_internal}
+     (nil))
+(insn 54 53 55 5 (set (reg:SI 71 [ next_produced.12 ])
+        (mem/c:SI (plus:DI (reg/f:DI 20 frame)
+                (const_int -4 [0xfffffffffffffffc])) [0 next_produced+0 S4 A32])) producer_consumer_problem-seamaphore.c:25 89 {*movsi_internal}
+     (nil))
+(insn 55 54 56 5 (set (reg:SI 4 si)
+        (reg:SI 71 [ next_produced.12 ])) producer_consumer_problem-seamaphore.c:25 89 {*movsi_internal}
+     (nil))
+(insn 56 55 57 5 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC4") [flags 0x2]  <var_decl 0x7fa5dd87c4c0 *.LC4>)) producer_consumer_problem-seamaphore.c:25 87 {*movdi_internal_rex64}
+     (nil))
+(insn 57 56 58 5 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:25 91 {*movqi_internal}
+     (nil))
+(call_insn 58 57 59 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7fa5dd71af00 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:25 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (expr_list:REG_BR_PRED (use (reg:SI 4 si))
+                (nil)))))
+;;  succ:       6 (FALLTHRU)
+
+;; basic block 6, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 5, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       4 [100.0%]  (FALLTHRU)
+;;              5 (FALLTHRU)
+(code_label 59 58 60 6 3 "" [0 uses])
+(note 60 59 61 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 61 60 62 6 (set (reg/f:DI 72 [ mutex.13 ])
+        (mem/f/c:DI (symbol_ref:DI ("mutex")  <var_decl 0x7fa5dd841d10 mutex>) [0 mutex+0 S8 A64])) producer_consumer_problem-seamaphore.c:27 87 {*movdi_internal_rex64}
+     (nil))
+(insn 62 61 63 6 (set (reg:DI 5 di)
+        (reg/f:DI 72 [ mutex.13 ])) producer_consumer_problem-seamaphore.c:27 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 63 62 64 6 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_post") [flags 0x41]  <function_decl 0x7fa5dd863c00 sem_post>) [0 sem_post S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:27 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 64 63 65 6 (set (reg/f:DI 73 [ full.14 ])
+        (mem/f/c:DI (symbol_ref:DI ("full")  <var_decl 0x7fa5dd841c78 full>) [0 full+0 S8 A64])) producer_consumer_problem-seamaphore.c:28 87 {*movdi_internal_rex64}
+     (nil))
+(insn 65 64 66 6 (set (reg:DI 5 di)
+        (reg/f:DI 73 [ full.14 ])) producer_consumer_problem-seamaphore.c:28 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 66 65 0 6 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_post") [flags 0x41]  <function_decl 0x7fa5dd863c00 sem_post>) [0 sem_post S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:28 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       3 [100.0%]  (FALLTHRU)
+
+
+;; Function consumer (consumer, funcdef_no=3, decl_uid=2727, cgraph_uid=3)
+
+
+
+try_optimize_cfg iteration 1
+
+Removing jump 46.
+
+
+try_optimize_cfg iteration 2
+
+
+
+try_optimize_cfg iteration 1
+
+;; basic block 2, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 0, next block 3, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 4 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                (const_int -24 [0xffffffffffffffe8])) [0 arg1+0 S8 A64])
+        (reg:DI 5 di [ arg1 ])) producer_consumer_problem-seamaphore.c:31 87 {*movdi_internal_rex64}
+     (nil))
+(note 3 2 45 2 NOTE_INSN_FUNCTION_BEG)
+;;  succ:       3 [100.0%]  (FALLTHRU)
+
+;; basic block 3, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 2, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5 [100.0%]  (FALLTHRU)
+;;              2 [100.0%]  (FALLTHRU)
+(code_label 45 3 5 3 7 "" [0 uses])
+(note 5 45 6 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 6 5 7 3 (set (reg:SI 5 di)
+        (const_int 1000 [0x3e8])) producer_consumer_problem-seamaphore.c:33 89 {*movsi_internal}
+     (nil))
+(insn 7 6 8 3 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:33 91 {*movqi_internal}
+     (nil))
+(call_insn 8 7 9 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("delay") [flags 0x41]  <function_decl 0x7fa5dd86e000 delay>) [0 delay S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:33 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_BR_PRED (use (reg:SI 5 di))
+            (nil))))
+(insn 9 8 10 3 (set (reg/f:DI 59 [ full.15 ])
+        (mem/f/c:DI (symbol_ref:DI ("full")  <var_decl 0x7fa5dd841c78 full>) [0 full+0 S8 A64])) producer_consumer_problem-seamaphore.c:35 87 {*movdi_internal_rex64}
+     (nil))
+(insn 10 9 11 3 (set (reg:DI 5 di)
+        (reg/f:DI 59 [ full.15 ])) producer_consumer_problem-seamaphore.c:35 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 11 10 12 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_wait") [flags 0x41]  <function_decl 0x7fa5dd863900 sem_wait>) [0 sem_wait S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:35 663 {*call_value}
+     (nil)
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 12 11 13 3 (set (reg/f:DI 60 [ mutex.16 ])
+        (mem/f/c:DI (symbol_ref:DI ("mutex")  <var_decl 0x7fa5dd841d10 mutex>) [0 mutex+0 S8 A64])) producer_consumer_problem-seamaphore.c:36 87 {*movdi_internal_rex64}
+     (nil))
+(insn 13 12 14 3 (set (reg:DI 5 di)
+        (reg/f:DI 60 [ mutex.16 ])) producer_consumer_problem-seamaphore.c:36 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 14 13 15 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_wait") [flags 0x41]  <function_decl 0x7fa5dd863900 sem_wait>) [0 sem_wait S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:36 663 {*call_value}
+     (nil)
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 15 14 16 3 (set (reg:SI 61 [ buf_begin.17 ])
+        (mem/c:SI (symbol_ref:DI ("buf_begin") [flags 0x2]  <var_decl 0x7fa5dd841e40 buf_begin>) [0 buf_begin+0 S4 A32])) producer_consumer_problem-seamaphore.c:37 89 {*movsi_internal}
+     (nil))
+(insn 16 15 17 3 (set (reg:SI 62 [ buf_end.18 ])
+        (mem/c:SI (symbol_ref:DI ("buf_end") [flags 0x2]  <var_decl 0x7fa5dd841ed8 buf_end>) [0 buf_end+0 S4 A32])) producer_consumer_problem-seamaphore.c:37 89 {*movsi_internal}
+     (nil))
+(insn 17 16 18 3 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg:SI 61 [ buf_begin.17 ])
+            (reg:SI 62 [ buf_end.18 ]))) producer_consumer_problem-seamaphore.c:37 7 {*cmpsi_1}
+     (nil))
+(jump_insn 18 17 19 3 (set (pc)
+        (if_then_else (ge (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 32)
+            (pc))) producer_consumer_problem-seamaphore.c:37 612 {*jcc_1}
+     (nil)
+ -> 32)
+;;  succ:       4 (FALLTHRU)
+;;              5
+
+;; basic block 4, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 3, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       3 (FALLTHRU)
+(note 19 18 20 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 20 19 21 4 (set (reg:SI 63 [ buf_begin.19 ])
+        (mem/c:SI (symbol_ref:DI ("buf_begin") [flags 0x2]  <var_decl 0x7fa5dd841e40 buf_begin>) [0 buf_begin+0 S4 A32])) producer_consumer_problem-seamaphore.c:38 89 {*movsi_internal}
+     (nil))
+(insn 21 20 22 4 (set (reg:SI 64 [ buf_begin.20 ])
+        (reg:SI 63 [ buf_begin.19 ])) producer_consumer_problem-seamaphore.c:38 89 {*movsi_internal}
+     (nil))
+(insn 22 21 23 4 (parallel [
+            (set (reg:SI 65 [ buf_begin.21 ])
+                (plus:SI (reg:SI 64 [ buf_begin.20 ])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) producer_consumer_problem-seamaphore.c:38 273 {*addsi_1}
+     (nil))
+(insn 23 22 24 4 (set (mem/c:SI (symbol_ref:DI ("buf_begin") [flags 0x2]  <var_decl 0x7fa5dd841e40 buf_begin>) [0 buf_begin+0 S4 A32])
+        (reg:SI 65 [ buf_begin.21 ])) producer_consumer_problem-seamaphore.c:38 89 {*movsi_internal}
+     (nil))
+(insn 24 23 25 4 (set (reg:DI 69)
+        (sign_extend:DI (reg:SI 64 [ buf_begin.20 ]))) producer_consumer_problem-seamaphore.c:38 149 {*extendsidi2_rex64}
+     (nil))
+(insn 25 24 26 4 (set (reg:SI 70)
+        (mem/j:SI (plus:DI (mult:DI (reg:DI 69)
+                    (const_int 4 [0x4]))
+                (symbol_ref:DI ("buf")  <var_decl 0x7fa5dd841da8 buf>)) [0 buf S4 A32])) producer_consumer_problem-seamaphore.c:38 89 {*movsi_internal}
+     (nil))
+(insn 26 25 27 4 (set (mem/c:SI (plus:DI (reg/f:DI 20 frame)
+                (const_int -4 [0xfffffffffffffffc])) [0 next_produced+0 S4 A32])
+        (reg:SI 70)) producer_consumer_problem-seamaphore.c:38 89 {*movsi_internal}
+     (nil))
+(insn 27 26 28 4 (set (reg:SI 71)
+        (mem/c:SI (plus:DI (reg/f:DI 20 frame)
+                (const_int -4 [0xfffffffffffffffc])) [0 next_produced+0 S4 A32])) producer_consumer_problem-seamaphore.c:39 89 {*movsi_internal}
+     (nil))
+(insn 28 27 29 4 (set (reg:SI 4 si)
+        (reg:SI 71)) producer_consumer_problem-seamaphore.c:39 89 {*movsi_internal}
+     (nil))
+(insn 29 28 30 4 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC5") [flags 0x2]  <var_decl 0x7fa5dd87cb48 *.LC5>)) producer_consumer_problem-seamaphore.c:39 87 {*movdi_internal_rex64}
+     (nil))
+(insn 30 29 31 4 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:39 91 {*movqi_internal}
+     (nil))
+(call_insn 31 30 32 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7fa5dd71af00 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:39 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (expr_list:REG_BR_PRED (use (reg:SI 4 si))
+                (nil)))))
+;;  succ:       5 (FALLTHRU)
+
+;; basic block 5, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 4, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       3
+;;              4 (FALLTHRU)
+(code_label 32 31 33 5 6 "" [1 uses])
+(note 33 32 34 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 34 33 35 5 (set (reg/f:DI 66 [ mutex.22 ])
+        (mem/f/c:DI (symbol_ref:DI ("mutex")  <var_decl 0x7fa5dd841d10 mutex>) [0 mutex+0 S8 A64])) producer_consumer_problem-seamaphore.c:41 87 {*movdi_internal_rex64}
+     (nil))
+(insn 35 34 36 5 (set (reg:DI 5 di)
+        (reg/f:DI 66 [ mutex.22 ])) producer_consumer_problem-seamaphore.c:41 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 36 35 37 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_post") [flags 0x41]  <function_decl 0x7fa5dd863c00 sem_post>) [0 sem_post S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:41 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 37 36 38 5 (set (reg/f:DI 67 [ empty.23 ])
+        (mem/f/c:DI (symbol_ref:DI ("empty")  <var_decl 0x7fa5dd841be0 empty>) [0 empty+0 S8 A64])) producer_consumer_problem-seamaphore.c:42 87 {*movdi_internal_rex64}
+     (nil))
+(insn 38 37 39 5 (set (reg:DI 5 di)
+        (reg/f:DI 67 [ empty.23 ])) producer_consumer_problem-seamaphore.c:42 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 39 38 40 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_post") [flags 0x41]  <function_decl 0x7fa5dd863c00 sem_post>) [0 sem_post S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:42 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 40 39 41 5 (set (reg:SI 72)
+        (mem/c:SI (plus:DI (reg/f:DI 20 frame)
+                (const_int -4 [0xfffffffffffffffc])) [0 next_produced+0 S4 A32])) producer_consumer_problem-seamaphore.c:43 89 {*movsi_internal}
+     (nil))
+(insn 41 40 42 5 (set (reg:SI 4 si)
+        (reg:SI 72)) producer_consumer_problem-seamaphore.c:43 89 {*movsi_internal}
+     (nil))
+(insn 42 41 43 5 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC6") [flags 0x2]  <var_decl 0x7fa5dd87cbe0 *.LC6>)) producer_consumer_problem-seamaphore.c:43 87 {*movdi_internal_rex64}
+     (nil))
+(insn 43 42 44 5 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:43 91 {*movqi_internal}
+     (nil))
+(call_insn 44 43 0 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7fa5dd71af00 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:43 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (expr_list:REG_BR_PRED (use (reg:SI 4 si))
+                (nil)))))
+;;  succ:       3 [100.0%]  (FALLTHRU)
+
+
+;; Function main (main, funcdef_no=4, decl_uid=2733, cgraph_uid=4)
+
+
+
+try_optimize_cfg iteration 1
+
+;; basic block 2, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 0, next block 3, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 3 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg:DI 5 di)
+        (const_int 8 [0x8])) producer_consumer_problem-seamaphore.c:47 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 6 5 7 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("malloc") [flags 0x41]  <function_decl 0x7fa5dd73ab00 malloc>) [0 __builtin_malloc S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:47 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 7 6 8 2 (set (reg/f:DI 73)
+        (reg:DI 0 ax)) producer_consumer_problem-seamaphore.c:47 87 {*movdi_internal_rex64}
+     (expr_list:REG_NOALIAS (reg/f:DI 73)
+        (nil)))
+(insn 8 7 9 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                (const_int -16 [0xfffffffffffffff0])) [0 pid+0 S8 A64])
+        (reg/f:DI 73)) producer_consumer_problem-seamaphore.c:47 87 {*movdi_internal_rex64}
+     (nil))
+(insn 9 8 10 2 (set (reg:DI 5 di)
+        (const_int 8 [0x8])) producer_consumer_problem-seamaphore.c:48 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 10 9 11 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("malloc") [flags 0x41]  <function_decl 0x7fa5dd73ab00 malloc>) [0 __builtin_malloc S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:48 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 11 10 12 2 (set (reg/f:DI 74)
+        (reg:DI 0 ax)) producer_consumer_problem-seamaphore.c:48 87 {*movdi_internal_rex64}
+     (expr_list:REG_NOALIAS (reg/f:DI 74)
+        (nil)))
+(insn 12 11 13 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                (const_int -8 [0xfffffffffffffff8])) [0 cid+0 S8 A64])
+        (reg/f:DI 74)) producer_consumer_problem-seamaphore.c:48 87 {*movdi_internal_rex64}
+     (nil))
+(insn 13 12 14 2 (set (reg:DI 5 di)
+        (const_int 32 [0x20])) producer_consumer_problem-seamaphore.c:49 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 14 13 15 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("malloc") [flags 0x41]  <function_decl 0x7fa5dd73ab00 malloc>) [0 __builtin_malloc S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:49 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 15 14 16 2 (set (reg/f:DI 75)
+        (reg:DI 0 ax)) producer_consumer_problem-seamaphore.c:49 87 {*movdi_internal_rex64}
+     (expr_list:REG_NOALIAS (reg/f:DI 75)
+        (nil)))
+(insn 16 15 17 2 (set (reg/f:DI 59 [ empty.24 ])
+        (reg/f:DI 75)) producer_consumer_problem-seamaphore.c:49 87 {*movdi_internal_rex64}
+     (nil))
+(insn 17 16 18 2 (set (mem/f/c:DI (symbol_ref:DI ("empty")  <var_decl 0x7fa5dd841be0 empty>) [0 empty+0 S8 A64])
+        (reg/f:DI 59 [ empty.24 ])) producer_consumer_problem-seamaphore.c:49 87 {*movdi_internal_rex64}
+     (nil))
+(insn 18 17 19 2 (set (reg:DI 5 di)
+        (const_int 32 [0x20])) producer_consumer_problem-seamaphore.c:50 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 19 18 20 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("malloc") [flags 0x41]  <function_decl 0x7fa5dd73ab00 malloc>) [0 __builtin_malloc S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:50 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 20 19 21 2 (set (reg/f:DI 76)
+        (reg:DI 0 ax)) producer_consumer_problem-seamaphore.c:50 87 {*movdi_internal_rex64}
+     (expr_list:REG_NOALIAS (reg/f:DI 76)
+        (nil)))
+(insn 21 20 22 2 (set (reg/f:DI 60 [ full.25 ])
+        (reg/f:DI 76)) producer_consumer_problem-seamaphore.c:50 87 {*movdi_internal_rex64}
+     (nil))
+(insn 22 21 23 2 (set (mem/f/c:DI (symbol_ref:DI ("full")  <var_decl 0x7fa5dd841c78 full>) [0 full+0 S8 A64])
+        (reg/f:DI 60 [ full.25 ])) producer_consumer_problem-seamaphore.c:50 87 {*movdi_internal_rex64}
+     (nil))
+(insn 23 22 24 2 (set (reg:DI 5 di)
+        (const_int 32 [0x20])) producer_consumer_problem-seamaphore.c:51 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 24 23 25 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("malloc") [flags 0x41]  <function_decl 0x7fa5dd73ab00 malloc>) [0 __builtin_malloc S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:51 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 25 24 26 2 (set (reg/f:DI 77)
+        (reg:DI 0 ax)) producer_consumer_problem-seamaphore.c:51 87 {*movdi_internal_rex64}
+     (expr_list:REG_NOALIAS (reg/f:DI 77)
+        (nil)))
+(insn 26 25 27 2 (set (reg/f:DI 61 [ mutex.26 ])
+        (reg/f:DI 77)) producer_consumer_problem-seamaphore.c:51 87 {*movdi_internal_rex64}
+     (nil))
+(insn 27 26 28 2 (set (mem/f/c:DI (symbol_ref:DI ("mutex")  <var_decl 0x7fa5dd841d10 mutex>) [0 mutex+0 S8 A64])
+        (reg/f:DI 61 [ mutex.26 ])) producer_consumer_problem-seamaphore.c:51 87 {*movdi_internal_rex64}
+     (nil))
+(insn 28 27 29 2 (set (mem/c:SI (plus:DI (reg/f:DI 20 frame)
+                (const_int -20 [0xffffffffffffffec])) [0 n+0 S4 A32])
+        (const_int 1 [0x1])) producer_consumer_problem-seamaphore.c:55 89 {*movsi_internal}
+     (nil))
+(insn 29 28 30 2 (set (reg:SI 62 [ n.27 ])
+        (mem/c:SI (plus:DI (reg/f:DI 20 frame)
+                (const_int -20 [0xffffffffffffffec])) [0 n+0 S4 A32])) producer_consumer_problem-seamaphore.c:56 89 {*movsi_internal}
+     (nil))
+(insn 30 29 31 2 (set (reg/f:DI 63 [ empty.28 ])
+        (mem/f/c:DI (symbol_ref:DI ("empty")  <var_decl 0x7fa5dd841be0 empty>) [0 empty+0 S8 A64])) producer_consumer_problem-seamaphore.c:56 87 {*movdi_internal_rex64}
+     (nil))
+(insn 31 30 32 2 (set (reg:SI 1 dx)
+        (reg:SI 62 [ n.27 ])) producer_consumer_problem-seamaphore.c:56 89 {*movsi_internal}
+     (nil))
+(insn 32 31 33 2 (set (reg:SI 4 si)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:56 89 {*movsi_internal}
+     (nil))
+(insn 33 32 34 2 (set (reg:DI 5 di)
+        (reg/f:DI 63 [ empty.28 ])) producer_consumer_problem-seamaphore.c:56 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 34 33 35 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_init") [flags 0x41]  <function_decl 0x7fa5dd863400 sem_init>) [0 sem_init S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:56 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (expr_list:REG_BR_PRED (use (reg:SI 4 si))
+            (expr_list:REG_BR_PRED (use (reg:SI 1 dx))
+                (nil)))))
+(insn 35 34 36 2 (set (reg:SI 64 [ D.2802 ])
+        (reg:SI 0 ax)) producer_consumer_problem-seamaphore.c:56 89 {*movsi_internal}
+     (nil))
+(insn 36 35 37 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 64 [ D.2802 ])
+            (const_int -1 [0xffffffffffffffff]))) producer_consumer_problem-seamaphore.c:56 7 {*cmpsi_1}
+     (nil))
+(jump_insn 37 36 38 2 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 44)
+            (pc))) producer_consumer_problem-seamaphore.c:56 612 {*jcc_1}
+     (nil)
+ -> 44)
+;;  succ:       3 (FALLTHRU)
+;;              4
+
+;; basic block 3, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 2, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 38 37 39 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 39 38 40 3 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC7") [flags 0x2]  <var_decl 0x7fa5dd48d260 *.LC7>)) producer_consumer_problem-seamaphore.c:58 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 40 39 41 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7fa5dd71c600 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:58 663 {*call_value}
+     (nil)
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 41 40 42 3 (set (reg:SI 5 di)
+        (const_int 1 [0x1])) producer_consumer_problem-seamaphore.c:59 89 {*movsi_internal}
+     (nil))
+(call_insn 42 41 44 3 (call (mem:QI (symbol_ref:DI ("exit") [flags 0x41]  <function_decl 0x7fa5dd72ef00 exit>) [0 __builtin_exit S1 A8])
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:59 656 {*call}
+     (expr_list:REG_NORETURN (const_int 0 [0])
+        (expr_list:REG_EH_REGION (const_int 0 [0])
+            (nil)))
+    (expr_list:REG_BR_PRED (use (reg:SI 5 di))
+        (nil)))
+;;  succ:      
+
+;; basic block 4, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 3, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+(code_label 44 42 45 4 9 "" [1 uses])
+(note 45 44 46 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 46 45 47 4 (set (reg/f:DI 65 [ full.29 ])
+        (mem/f/c:DI (symbol_ref:DI ("full")  <var_decl 0x7fa5dd841c78 full>) [0 full+0 S8 A64])) producer_consumer_problem-seamaphore.c:61 87 {*movdi_internal_rex64}
+     (nil))
+(insn 47 46 48 4 (set (reg:SI 1 dx)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:61 89 {*movsi_internal}
+     (nil))
+(insn 48 47 49 4 (set (reg:SI 4 si)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:61 89 {*movsi_internal}
+     (nil))
+(insn 49 48 50 4 (set (reg:DI 5 di)
+        (reg/f:DI 65 [ full.29 ])) producer_consumer_problem-seamaphore.c:61 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 50 49 51 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_init") [flags 0x41]  <function_decl 0x7fa5dd863400 sem_init>) [0 sem_init S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:61 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (expr_list:REG_BR_PRED (use (reg:SI 4 si))
+            (expr_list:REG_BR_PRED (use (reg:SI 1 dx))
+                (nil)))))
+(insn 51 50 52 4 (set (reg:SI 66 [ D.2802 ])
+        (reg:SI 0 ax)) producer_consumer_problem-seamaphore.c:61 89 {*movsi_internal}
+     (nil))
+(insn 52 51 53 4 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 66 [ D.2802 ])
+            (const_int -1 [0xffffffffffffffff]))) producer_consumer_problem-seamaphore.c:61 7 {*cmpsi_1}
+     (nil))
+(jump_insn 53 52 54 4 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 60)
+            (pc))) producer_consumer_problem-seamaphore.c:61 612 {*jcc_1}
+     (nil)
+ -> 60)
+;;  succ:       5 (FALLTHRU)
+;;              6
+
+;; basic block 5, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (FALLTHRU)
+(note 54 53 55 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 55 54 56 5 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC7") [flags 0x2]  <var_decl 0x7fa5dd48d260 *.LC7>)) producer_consumer_problem-seamaphore.c:63 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 56 55 57 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7fa5dd71c600 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:63 663 {*call_value}
+     (nil)
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 57 56 58 5 (set (reg:SI 5 di)
+        (const_int 1 [0x1])) producer_consumer_problem-seamaphore.c:64 89 {*movsi_internal}
+     (nil))
+(call_insn 58 57 60 5 (call (mem:QI (symbol_ref:DI ("exit") [flags 0x41]  <function_decl 0x7fa5dd72ef00 exit>) [0 __builtin_exit S1 A8])
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:64 656 {*call}
+     (expr_list:REG_NORETURN (const_int 0 [0])
+        (expr_list:REG_EH_REGION (const_int 0 [0])
+            (nil)))
+    (expr_list:REG_BR_PRED (use (reg:SI 5 di))
+        (nil)))
+;;  succ:      
+
+;; basic block 6, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4
+(code_label 60 58 61 6 10 "" [1 uses])
+(note 61 60 62 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 62 61 63 6 (set (reg/f:DI 67 [ mutex.30 ])
+        (mem/f/c:DI (symbol_ref:DI ("mutex")  <var_decl 0x7fa5dd841d10 mutex>) [0 mutex+0 S8 A64])) producer_consumer_problem-seamaphore.c:66 87 {*movdi_internal_rex64}
+     (nil))
+(insn 63 62 64 6 (set (reg:SI 1 dx)
+        (const_int 1 [0x1])) producer_consumer_problem-seamaphore.c:66 89 {*movsi_internal}
+     (nil))
+(insn 64 63 65 6 (set (reg:SI 4 si)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:66 89 {*movsi_internal}
+     (nil))
+(insn 65 64 66 6 (set (reg:DI 5 di)
+        (reg/f:DI 67 [ mutex.30 ])) producer_consumer_problem-seamaphore.c:66 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 66 65 67 6 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("sem_init") [flags 0x41]  <function_decl 0x7fa5dd863400 sem_init>) [0 sem_init S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:66 663 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (expr_list:REG_BR_PRED (use (reg:SI 4 si))
+            (expr_list:REG_BR_PRED (use (reg:SI 1 dx))
+                (nil)))))
+(insn 67 66 68 6 (set (reg:SI 68 [ D.2802 ])
+        (reg:SI 0 ax)) producer_consumer_problem-seamaphore.c:66 89 {*movsi_internal}
+     (nil))
+(insn 68 67 69 6 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 68 [ D.2802 ])
+            (const_int -1 [0xffffffffffffffff]))) producer_consumer_problem-seamaphore.c:66 7 {*cmpsi_1}
+     (nil))
+(jump_insn 69 68 70 6 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 76)
+            (pc))) producer_consumer_problem-seamaphore.c:66 612 {*jcc_1}
+     (nil)
+ -> 76)
+;;  succ:       7 (FALLTHRU)
+;;              8
+
+;; basic block 7, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL)
+;;  pred:       6 (FALLTHRU)
+(note 70 69 71 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 71 70 72 7 (set (reg:DI 5 di)
+        (symbol_ref/f:DI ("*.LC7") [flags 0x2]  <var_decl 0x7fa5dd48d260 *.LC7>)) producer_consumer_problem-seamaphore.c:68 87 {*movdi_internal_rex64}
+     (nil))
+(call_insn 72 71 73 7 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7fa5dd71c600 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:68 663 {*call_value}
+     (nil)
+    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+        (nil)))
+(insn 73 72 74 7 (set (reg:SI 5 di)
+        (const_int 1 [0x1])) producer_consumer_problem-seamaphore.c:69 89 {*movsi_internal}
+     (nil))
+(call_insn 74 73 76 7 (call (mem:QI (symbol_ref:DI ("exit") [flags 0x41]  <function_decl 0x7fa5dd72ef00 exit>) [0 __builtin_exit S1 A8])
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:69 656 {*call}
+     (expr_list:REG_NORETURN (const_int 0 [0])
+        (expr_list:REG_EH_REGION (const_int 0 [0])
+            (nil)))
+    (expr_list:REG_BR_PRED (use (reg:SI 5 di))
+        (nil)))
+;;  succ:      
+
+;; basic block 8, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 7, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       6
+(code_label 76 74 77 8 11 "" [1 uses])
+(note 77 76 78 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 78 77 79 8 (set (reg:DI 78)
+        (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                (const_int -16 [0xfffffffffffffff0])) [0 pid+0 S8 A64])) producer_consumer_problem-seamaphore.c:71 87 {*movdi_internal_rex64}
+     (nil))
+(insn 79 78 80 8 (set (reg:DI 2 cx)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:71 87 {*movdi_internal_rex64}
+     (nil))
+(insn 80 79 81 8 (set (reg:DI 1 dx)
+        (symbol_ref:DI ("producer") [flags 0x3]  <function_decl 0x7fa5dd863e00 producer>)) producer_consumer_problem-seamaphore.c:71 87 {*movdi_internal_rex64}
+     (nil))
+(insn 81 80 82 8 (set (reg:DI 4 si)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:71 87 {*movdi_internal_rex64}
+     (nil))
+(insn 82 81 83 8 (set (reg:DI 5 di)
+        (reg:DI 78)) producer_consumer_problem-seamaphore.c:71 87 {*movdi_internal_rex64}
+     (nil))
+(insn 83 82 84 8 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:71 91 {*movqi_internal}
+     (nil))
+(call_insn 84 83 85 8 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("pthread_create") [flags 0x41]  <function_decl 0x7fa5dd86e300 pthread_create>) [0 pthread_create S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:71 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 4 si))
+                (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 1 dx))
+                    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 2 cx))
+                        (nil)))))))
+(insn 85 84 86 8 (set (reg:DI 79)
+        (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                (const_int -8 [0xfffffffffffffff8])) [0 cid+0 S8 A64])) producer_consumer_problem-seamaphore.c:72 87 {*movdi_internal_rex64}
+     (nil))
+(insn 86 85 87 8 (set (reg:DI 2 cx)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:72 87 {*movdi_internal_rex64}
+     (nil))
+(insn 87 86 88 8 (set (reg:DI 1 dx)
+        (symbol_ref:DI ("consumer") [flags 0x3]  <function_decl 0x7fa5dd863f00 consumer>)) producer_consumer_problem-seamaphore.c:72 87 {*movdi_internal_rex64}
+     (nil))
+(insn 88 87 89 8 (set (reg:DI 4 si)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:72 87 {*movdi_internal_rex64}
+     (nil))
+(insn 89 88 90 8 (set (reg:DI 5 di)
+        (reg:DI 79)) producer_consumer_problem-seamaphore.c:72 87 {*movdi_internal_rex64}
+     (nil))
+(insn 90 89 91 8 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:72 91 {*movqi_internal}
+     (nil))
+(call_insn 91 90 92 8 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("pthread_create") [flags 0x41]  <function_decl 0x7fa5dd86e300 pthread_create>) [0 pthread_create S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:72 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 4 si))
+                (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 1 dx))
+                    (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 2 cx))
+                        (nil)))))))
+(insn 92 91 93 8 (set (reg/f:DI 80)
+        (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                (const_int -16 [0xfffffffffffffff0])) [0 pid+0 S8 A64])) producer_consumer_problem-seamaphore.c:73 87 {*movdi_internal_rex64}
+     (nil))
+(insn 93 92 94 8 (set (reg:DI 69 [ D.2803 ])
+        (mem:DI (reg/f:DI 80) [0 *pid_1+0 S8 A64])) producer_consumer_problem-seamaphore.c:73 87 {*movdi_internal_rex64}
+     (nil))
+(insn 94 93 95 8 (set (reg:DI 4 si)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:73 87 {*movdi_internal_rex64}
+     (nil))
+(insn 95 94 96 8 (set (reg:DI 5 di)
+        (reg:DI 69 [ D.2803 ])) producer_consumer_problem-seamaphore.c:73 87 {*movdi_internal_rex64}
+     (nil))
+(insn 96 95 97 8 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:73 91 {*movqi_internal}
+     (nil))
+(call_insn 97 96 98 8 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("pthread_join") [flags 0x41]  <function_decl 0x7fa5dd86e400 pthread_join>) [0 pthread_join S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:73 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 4 si))
+                (nil)))))
+(insn 98 97 99 8 (set (reg/f:DI 81)
+        (mem/f/c:DI (plus:DI (reg/f:DI 20 frame)
+                (const_int -8 [0xfffffffffffffff8])) [0 cid+0 S8 A64])) producer_consumer_problem-seamaphore.c:74 87 {*movdi_internal_rex64}
+     (nil))
+(insn 99 98 100 8 (set (reg:DI 70 [ D.2803 ])
+        (mem:DI (reg/f:DI 81) [0 *cid_2+0 S8 A64])) producer_consumer_problem-seamaphore.c:74 87 {*movdi_internal_rex64}
+     (nil))
+(insn 100 99 101 8 (set (reg:DI 4 si)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:74 87 {*movdi_internal_rex64}
+     (nil))
+(insn 101 100 102 8 (set (reg:DI 5 di)
+        (reg:DI 70 [ D.2803 ])) producer_consumer_problem-seamaphore.c:74 87 {*movdi_internal_rex64}
+     (nil))
+(insn 102 101 103 8 (set (reg:QI 0 ax)
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:74 91 {*movqi_internal}
+     (nil))
+(call_insn 103 102 104 8 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("pthread_join") [flags 0x41]  <function_decl 0x7fa5dd86e400 pthread_join>) [0 pthread_join S1 A8])
+            (const_int 0 [0]))) producer_consumer_problem-seamaphore.c:74 663 {*call_value}
+     (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:QI 0 ax))
+        (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 5 di))
+            (expr_list:REG_FRAME_RELATED_EXPR (use (reg:DI 4 si))
+                (nil)))))
+(insn 104 103 107 8 (set (reg:SI 71 [ D.2802 ])
+        (const_int 0 [0])) producer_consumer_problem-seamaphore.c:75 89 {*movsi_internal}
+     (nil))
+(insn 107 104 111 8 (set (reg:SI 72 [ <retval> ])
+        (reg:SI 71 [ D.2802 ])) producer_consumer_problem-seamaphore.c:75 89 {*movsi_internal}
+     (nil))
+(insn 111 107 114 8 (set (reg/i:SI 0 ax)
+        (reg:SI 72 [ <retval> ])) producer_consumer_problem-seamaphore.c:76 89 {*movsi_internal}
+     (nil))
+(insn 114 111 0 8 (use (reg/i:SI 0 ax)) producer_consumer_problem-seamaphore.c:76 -1
+     (nil))
+;;  succ:       EXIT [100.0%]  (FALLTHRU)
+
