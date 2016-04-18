@@ -6,10 +6,12 @@
 #include <stdlib.h>                         // for malloc
 #include <semaphore.h>                      // for semaphore
 sem_t *empty, *full, *mutex;
+unsigned int delay;
+// Circular queue is preferred
 int buf[1000], buf_begin=-1, buf_end = -1;
 void* producer(void* arg1){
     while(1){
-        printf("\nEnter an integer to add it to the buffer:   ");
+        printf("\nEnter an integer to produce:   ");
         int next_produced;
         scanf("%d",&next_produced);
         printf("%d is produced\n",next_produced);
@@ -31,8 +33,8 @@ void* producer(void* arg1){
 }
 void* consumer(void* arg1){
     while(1){
-        // consumes every 5 seconds
-        sleep(5);
+        // consumes every "delay" seconds
+        sleep(delay);
         int next_produced;
         sem_wait(full);
         sem_wait(mutex);
@@ -43,6 +45,11 @@ void* consumer(void* arg1){
         sem_post(mutex);
         sem_post(empty);
         printf("Consumer thread consumed: %d\n",next_produced);
+        if(buf_begin == buf_end){
+            buf_begin = -1;
+            buf_end = -1;
+            printf("\n\nAll buffers empty!\n");
+        }
     }
 }
 int main(){
@@ -52,9 +59,10 @@ int main(){
     full = (sem_t*)malloc(sizeof(sem_t));
     mutex = (sem_t*)malloc(sizeof(sem_t));
     int n;
-    //printf("Enter the number of buffers");
-    //scanf("%d",&n);
-    n = 1;          // only 1 buffer is possible as both run as threads in the same program
+    printf("Enter the number of buffers: ");
+    scanf("%d",&n);
+    printf("Enter delay time of the consumer in seconds: ");
+    scanf("%d",&delay);
     if(sem_init(empty,0,n) == -1){
         // pshared is 0 - to share semapfore between different threads in the program
 		printf("\nCannot initialze semapfore\n");
