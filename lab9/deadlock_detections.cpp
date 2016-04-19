@@ -16,7 +16,6 @@ public:
         gnodes.resize(k);
     }
     void dfs_recurse(int n){
-        vector<int>::iterator it;
         for(int i=0;i < gnodes[n].children.size();i++){
             if(vis[gnodes[n].children[i]]==false){
                 vis[gnodes[n].children[i]] = true;

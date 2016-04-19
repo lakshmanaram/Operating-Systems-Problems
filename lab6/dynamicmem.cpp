@@ -1,4 +1,5 @@
 // dynamic memory allocation
+// Approach time of Processes should be in the ascending order while giving input, otherwise sorting code should be added.
 #include <bits/stdc++.h>
 using namespace std;
 
