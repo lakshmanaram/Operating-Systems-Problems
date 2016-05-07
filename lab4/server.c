@@ -61,7 +61,7 @@ int main()
 		* we put there.
 		*/
 		printf("Client Process: ");
-		puts(shm+1);							// prints th eline written by the client process
+		puts(shm+1);							// prints the line written by the client process
 //		putchar('\n');
 	}
 	shmdt(shm);
